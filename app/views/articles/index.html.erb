@@ -6,16 +6,18 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <!-- This empty header allows a column for the show buttons -->
-    <th></th>
+    <!-- This creates 2 empty column for the show and edit buttons -->
+    <th colspan="2"></th>
   </tr>
 
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <!-- This gives a link to the individual articles with the display text Show -->
+      <!-- This gives a link to show the individual articles with the display text Show -->
       <td><%= link_to 'Show', article_path(article) %></td>
+      <!-- This gives a link to edit the individual articles with the display text Show -->
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
     </tr>
   <% end %>
 </table>

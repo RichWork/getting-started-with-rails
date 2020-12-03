@@ -34,7 +34,18 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Allows existing information to be updated, required for the edit action above
+  def update
+    @article = Article.find(params[:id])
 
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
+
+  
   # Private functions can only be called within a script?
   private
 
