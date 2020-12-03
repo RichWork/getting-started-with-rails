@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-
   # Creates the articles/new page which takes the new.html.erb layout
   def new
     @article = Article.new
@@ -45,7 +44,14 @@ class ArticlesController < ApplicationController
     end
   end
 
-  
+  # Delete function for the database
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_path
+  end
+
   # Private functions can only be called within a script?
   private
 
