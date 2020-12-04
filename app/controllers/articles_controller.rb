@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # Provides basic security by requiring a username/password on everything except index and show
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   # Allows the controller to show all the articles in the database
   def index
     @articles = Article.all # Note the plural on articles
