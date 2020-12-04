@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :articles
+# This creates a nested resource within articles
+  resources :articles do
+    resources :comments
+  end
 
   root 'welcome#index'
 end
